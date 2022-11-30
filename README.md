@@ -5,24 +5,12 @@ have 6 classes of furniture and 15 subclasses- and the units of layers recognize
 
 ![visual_features](visual_features.PNG)
 
-There are 2 different parts in my project: image processing and text parsing analyzing.
-First, we train the network on a labeled image dataset to provide the visual embedding vectors.
-I have generated the images and segmented sub-components and labels using Unity. The image
-dataset is uploaded in “data_loader.py”. Afterwards, we fine-tune a pre-trained CNN for
-concrete words (e.g., furniture) in “model_testing2.py”. Then, the model checkpoints will be
-uploaded by “model_loader.py”. Associated units with each concept is recognized in
-“tally_job_image” function located in “feature_operation.py”. For each image in test image
-dataset, it prints out the activated unit for the existing labels. The results of this part need to be
-evaluated and enhanced later.
-On the other hand, we use PoS tagging and Skip-gram to provide their textual embedding
-vectors. The reason I applied PoS tagging for texts pre-processing is that I believed the furniture
-stuff would be utilized by the similar action verbs. We use the furniture reviews in Amazon. The
-code is written in “skipGramFurniture.py”. The results are below:
+There are 2 different parts in my project: image processing and text parsing analyzing. First, we train the network on a labeled image dataset to provide the visual embedding vectors. I have generated the images and segmented sub-components and labels using Unity. The image
+dataset is located on Releases. Second, we fine-tune a pre-trained CNN for concrete words (e.g., furniture) in “model_testing2.py”. Then, the model checkpoints will be
+uploaded to “model_loader.py”. Associated units with each concept is recognized in “tally_job_image” function located in “feature_operation.py”. For each image in test image dataset, it prints out the activated unit for the existing labels. The results of this part need to be enhanced and evaluated for the future explorations.
+On the other hand, we use PoS tagging and Skip-gram to provide their textual embedding vectors. The reason I applied PoS tagging for texts pre-processing is that It is believed that the furniture stuff would be utilized by the similar action verbs (affordances). We use the furniture reviews in Amazon. The code is written in “skipGramFurniture.py”. The results are below:
 
 
 ![results](results.PNG)
 
-The results show the cosine similarity between the individual word with a list of similar words.
-Three analyses are left for future. Why is the cosine similarity of a word with itself less than
-one? How different numbers of similar words could be chosen for a word? (e.g., 3 for armchair,
-0 for mattress). What happen if semantic role labeling is applied instead of PoS tagging for preprocessing?
+The results show the cosine similarity between the individual word with a list of similar words. Three analyses are left for future. Why is the cosine similarity of a word with itself less than one? How different numbers of similar words could be chosen for a word? (e.g., 3 for armchair, 0 for mattress). What happen if semantic role labeling is applied instead of PoS tagging for preprocessing?
